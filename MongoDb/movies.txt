@@ -246,33 +246,28 @@ Atlas atlas-41g84j-shard-0 [primary] mongo_practice> db.Movies.find({synopsis:{$
   }
 ]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Atlas atlas-41g84j-shard-0 [primary] mongo_practice> db.Movies.find({$or:[{synopsis:{$regex:"dwarves"}}, {synopsis:{$regex:"hobbit"}}]})
+[
+  {
+    _id: ObjectId('695cd17e8d76ef52051e262a'),
+    title: 'The Hobbit: An Unexpected Journey',
+    writer: 'J.R.R. Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit',
+    synopsis: 'A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug.'
+  }
+]
+Atlas atlas-41g84j-shard-0 [primary] mongo_practice> db.Movies.find({$and:[{synopsis:{$regex:"gold"}}, {synopsis:{$regex:"dragon"}}]})
+[
+  {
+    _id: ObjectId('695cd17e8d76ef52051e262a'),
+    title: 'The Hobbit: An Unexpected Journey',
+    writer: 'J.R.R. Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit',
+    synopsis: 'A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug.'
+  }
+]
 
 
 Atlas atlas-41g84j-shard-0 [primary] mongo_practice> db.Movies.remove({_id:ObjectId("695cd2bd8d76ef52051e262d")})
@@ -325,5 +320,6 @@ Atlas atlas-41g84j-shard-0 [primary] mongo_practice> db.Movies.find()
   },
   { _id: ObjectId('695cd2cc8d76ef52051e262e'), title: 'Avatar' }
 ]
+
 
 
